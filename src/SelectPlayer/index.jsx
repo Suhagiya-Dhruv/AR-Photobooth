@@ -62,7 +62,7 @@ const SelectPlayer = () => {
 
   const [selected, setSelected] = useState([]);
 
-  const [output, setOutput] = useState(true);
+  const [output, setOutput] = useState(false);
 
   const selectedHandler = (item) => {
 
@@ -88,8 +88,9 @@ const SelectPlayer = () => {
               {character.map((item, idx) => {
                 return (
                   <div key={idx} className={`${Style.model_image}`} onClick={() => selectedHandler(item)}>
-                    {/* <div className={`${Style.selected}`}>&#9733;</div> */}
-                    <div className={`${Style.selection}`}></div>
+                    {selected.find(a => a.id === item.id) ? <div className={`${Style.selected}`}>&#9733;</div>
+                      : <div className={`${Style.selection}`}></div>
+                    }
                     <img src={item.link} alt="none" className={`${Style.image}`} />
                     <h4>Iron</h4>
                     <h2>Man</h2>
